@@ -44,7 +44,7 @@ git clone https://github.com/riverscn/openwrt-iptvhelper.git package/luci-app-ip
 # 2. luci-app-msd_lite (组播相关)
 git clone https://github.com/ximiTech/luci-app-msd_lite.git package/luci-app-msd_lite
 
-# 3. luci-app-xupnpd (UPnP 增强？)
+# 3. luci-app-xupnpd (IPTV 流量或 HTTP 流转换为 DLNA/UPnP)
 git clone https://github.com/jarod360/luci-app-xupnpd.git package/luci-app-xupnpd
 
 # 4. luci-app-omcproxy (组播代理，强制用 18.06 分支)
