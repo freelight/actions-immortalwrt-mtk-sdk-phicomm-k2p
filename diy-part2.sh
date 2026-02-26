@@ -87,6 +87,7 @@ git clone https://github.com/siwind/luci-app-vlmcsd.git package/luci-app-vlmcsd
 cat >> .config << EOF
 CONFIG_PACKAGE_luci-app-iptvhelper=y
 CONFIG_PACKAGE_luci-app-msd_lite=y
+CONFIG_PACKAGE_xupnpd=y
 CONFIG_PACKAGE_luci-app-xupnpd=y
 CONFIG_PACKAGE_luci-app-omcproxy=y
 CONFIG_PACKAGE_luci-app-socat=y
