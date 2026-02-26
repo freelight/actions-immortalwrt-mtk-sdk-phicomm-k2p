@@ -33,7 +33,7 @@ fi
 
 # 确保 feed 更新与安装（workflow 通常已执行，但这里再跑一次无害）
 ./scripts/feeds update -a
-
+./scripts/feeds install -a
 # ------------------------------- 添加缺失的第三方 luci-app（clone 到 package/ 目录） -------------------------------
 # 1. luci-app-iptvhelper (IPTV 助手)
 git clone https://github.com/riverscn/openwrt-iptvhelper.git package/luci-app-iptvhelper
@@ -68,6 +68,11 @@ git clone https://github.com/rufengsuixing/luci-app-syncdial.git package/luci-ap
 # 8. luci-app-ssr-plus (SSR Plus+，用 ImmortalWrt 收藏的 Lean 备份版)
 git clone https://github.com/immortalwrt-collections/luci-app-ssr-plus-Jo.git package/luci-app-ssr-plus
 
+# 9. vlmcsd 
+git clone https://github.com/siwind/openwrt-vlmcsd.git package/vlmcsd
+git clone https://github.com/siwind/luci-app-vlmcsd.git package/luci-app-vlmcsd
+./scripts/feeds install vlmcsd
+./scripts/feeds install luci-app-vlmcsd
 # ------------------------------- 安装所有新添加的 feeds/package -------------------------------
 ./scripts/feeds install -a -p luci-app-iptvhelper
 ./scripts/feeds install -a -p luci-app-msd_lite
@@ -91,7 +96,6 @@ CONFIG_PACKAGE_luci-app-ssr-plus=y
 EOF
 
 make defconfig
-./scripts/feeds install -a
 
 # ------------------------------- 自定义 .config（你的核心要求） -------------------------------
 cat > .config.custom << 'EOF'
@@ -124,6 +128,7 @@ CONFIG_PACKAGE_luci-app-xupnpd=y
 CONFIG_PACKAGE_luci-app-omcproxy=y
 CONFIG_PACKAGE_luci-app-turboacc=y
 CONFIG_PACKAGE_luci-app-sqm=y
+CONFIG_PACKAGE_vlmcsd=y
 CONFIG_PACKAGE_luci-app-vlmcsd=y
 # CONFIG_PACKAGE_luci-app-socat=y
 CONFIG_PACKAGE_luci-app-timewol=y
